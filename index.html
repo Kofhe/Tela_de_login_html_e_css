@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- /*importar fonte fofa*/ -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"> 
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+    <style>
+        
+        body {
+            display: flex;
+            justify-content: center;
+            /*centraliza horizontal */
+            align-items: center;
+            /* centraliza vertical */
+            height: 100vh;
+            /*100% da altura da tela*/
+
+            /*Fundo bonitinho*/
+            background: linear-gradient(to right, #c9d6ff, #fbc2eb); /*to right → degrade da esquerda pra direita*/
+            
+            font-family: 'Poppins', sans-serif; /*fonte*/
+
+            overflow: hidden; /*tirar o scroll*/
+        }
+        
+
+        /*Mexer na caixa div*/
+        .card {
+            background: white; /*cor de fundo*/
+            padding: 30px; /*espaço interno*/
+            border-radius: 15px; /*borda arrendondada */
+            /*0px → não puxa pro lado 10px → desce um pouco 25px → bem suave (blur alto) e transparência*/
+            box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.15); /*sombra(caixa)*/
+            text-align: center;
+            /*centralizar textos*/
+            border: 1px solid rgba(255, 255, 255, 0.5); /*borda ao redor*/
+
+            position: relative; /*para a imagem se posicionar em relação ao card, não à tela inteira*/
+        }
+        /*Estilizando o gato dentro da div*/
+        .gatinho{
+            position: absolute; /*positionamento livre*/
+            width: 60px; /*tamanho*/
+            bottom: -10px; /*descer*/
+            right: -10px; /*canto direito*/
+            
+            transform: rotate(-15deg);/*rodou um pouco*/
+            
+
+          animation: balancar 3s infinite ease-in-out;  /*balançar o gatinho*/
+        }
+        @keyframes balancar {
+    0% {
+        transform: rotate(-10deg);
+    }
+    50% {
+        transform: rotate(-15deg);
+    }
+    100% {
+        transform: rotate(-10deg);
+    }
+}
+
+        /*Estilizar o input*/
+        input {
+            text-align: center;
+            /*centralizar textos*/
+            width: 100%;
+            /*ocupada a caixa toda*/
+            padding: 10px;
+            /*espaço interno*/
+            margin-top: 5px;
+            /*separando os elementos*/
+            margin-bottom: 15px;
+            border: none;
+            /*tira a linha da caixa*/
+            border-bottom: 2px solid pink;
+            /*borda só embaixo, 2 espessura, linha e a cor*/
+            /*outline: none; retira o contorno do clique na caixa*/
+        }
+
+        input:focus {
+        outline: none; /*tira a linha de preenchimento*/
+        background: rgba(255, 192, 203, 0.3); /* coloca uma cor no fundo bonitnha*/
+            
+        }
+
+        /*Estilizando o button*/
+        button {
+            width: 20%; /*tamanho do button*/
+            background: linear-gradient(45deg, #ff8fab, #fbc2eb); /*cor do button*/
+            border: none; /*tirando borda do button*/
+            padding: 12px; /*dar gordurinha*/
+            border-radius: 20px; /*borda arrendondada*/
+            cursor: pointer; /*modifica a setinha*/
+            transition: 0.3s; /*mudança suave da cor*/
+            color: white; /*cor da letra*/
+            font-weight: 600; /*grossura da fonte*/
+        }
+
+        button:hover {
+            background: #f8a8d8; /*cor muda quando passa o mouse*/
+            transform: scale(1.03); /*aumenta quando coloca o mouse em cima*/
+        }
+
+        button:active{
+            transform: scale(0.97); /*button afunda no clique*/
+        }
+
+        /*Titulo e sub*/
+        h1 {
+            color: #ff8fab; /*cor da letra*/
+            font-size: 32px; /*tamanho da fonte*/
+            margin-bottom: 10px; /*borda só embaixo*/
+            font-weight: 600; /*deixa mais forte*/
+            letter-spacing: 1px; /*espaço entre as letras*/
+            text-shadow: 2px 2px 8px rgba(255, 143, 171, 0.4); /*brilho rosinha com sombra*/
+            font-family: 'Lobster';
+        }
+        
+
+        h2 {
+            font-size: 16px; /*tamanho da fonte*/
+            color: #888; /*cor da letra*/
+            margin-bottom: 20px;  /*borda só embaixo*/
+            font-weight: 300; /*deixa mais forte*/
+            }
+         
+        /*Mexer nas imagens das estrelas*/
+        .estrela1{
+            position: absolute; /*mover livremente*/
+            width: 100px; /*tamanho*/
+            top: 50px; /*desce da parte de cima*/
+            left: 100px; /*anda da esquerda*/
+            transform: rotate(10deg); /*rodar*/
+                       
+        }
+    /*Animar 1 estrela*/
+        .estrela1 {
+    animation: flutuar 3s infinite alternate;
+}
+@keyframes flutuar {
+    from {
+        transform: translateY(0px) rotate(10deg);
+    }
+    to {
+        transform: translateY(-10px) rotate(10deg);
+    }
+
+}.estrela2{
+            position: absolute; /*mover livremente*/
+            width: 80px; /*tamanho*/
+            bottom: 70px; /*sobe de baixo*/
+            right: 100px; /*anda da direita*/
+        }
+        /*pulsando estrela 2*/
+.estrela2 {
+    animation: brilho 2s infinite alternate;
+}
+
+@keyframes brilho {
+    from {
+        opacity: 0.7;
+        transform: scale(1) rotate(10deg);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.1) rotate(10deg);
+    }
+}
+        
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h1>Portal das estrelas</h1>
+        <h2>Que bom te ver 💖</h2>
+
+        <label for="usuario">Usuário:</label>
+        <input type="text" id="usuario" placeholder="Digite seu usuário">
+
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" placeholder="Digite sua senha">
+
+        <button>Entrar</button>
+
+        <img src="gatinho fofo.png" alt="gatinho" class="gatinho">
+    </div>
+    
+    <img src="estrela1.png" alt="estrela1" class="estrela1">
+    <img src="estrela2.png" alt="estrela2" class="estrela2">
+</body>
+
+</html>
